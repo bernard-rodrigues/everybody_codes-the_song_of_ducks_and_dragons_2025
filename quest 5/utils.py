@@ -43,24 +43,23 @@ class Fishbone:
     def get_lines(self):
         return self.fishbone_array
     
-    def get_lines_value(self) -> list[int]:
-        lines_value = ""
+    def get_lines_values(self) -> list[int]:
+        lines_values = []
         for line in self.get_lines():
-            line_left = str(line.get_left()) if line.get_left() else "0"
+            line_left = str(line.get_left()) if line.get_left() else ""
             line_center = str(line.get_center())
             line_right = str(line.get_right()) if line.get_right() else ""
-            if line_right:
-                lines_value += line_left + line_center + line_right
-            else:
-                lines_value += "0" + line_left + line_center
-        return int(lines_value)
+            
+            lines_values.append(int(line_left + line_center + line_right))
+            
+        return lines_values
 
     
 class SwordData:
     def __init__(self, id: int, quality: int, fishbone: Fishbone):
         self.id = id
         self.quality = quality
-        self.fishbone_lines_value = fishbone.get_lines_value()
+        self.fishbone_lines_values = fishbone.get_lines_values()
 
     # Used by print(sword)
     def __str__(self):
