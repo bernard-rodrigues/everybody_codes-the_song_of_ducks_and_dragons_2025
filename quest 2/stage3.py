@@ -31,9 +31,15 @@ iterations = 0
 
 for i in range(A.x, B.x + 1, 1):
     for j in range(A.y, B.y + 1, 1):
-        if verify(Vect(i, j)):
-            point_list.append(Vect(i, j))
-        iterations += 1
-        show_percentage(iterations, 1001*1001)
+        point_list.append(Vect(i, j))
+    
+engraved_points = []
 
-print(f"\nPoints engraved: {len(point_list)}")
+for point in point_list:
+    if verify(point):
+        engraved_points.append(point)
+    iterations += 1
+    show_percentage(iterations, 1001*1001)
+
+# Output must be 64369
+print(f"\nPoints engraved: {len(engraved_points)}")
