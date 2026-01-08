@@ -29,6 +29,7 @@ point_list = []
 
 iterations = 0
 
+# Complexidade está alta
 for i in range(A.x, B.x + 1, 1):
     for j in range(A.y, B.y + 1, 1):
         point_list.append(Vect(i, j))

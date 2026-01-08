@@ -524,6 +524,7 @@ for index, sword in enumerate(swords):
         result += str(fishbone_line.get_center())
     sword_list.append(SwordData(index + 1, int(result), fishbone))
 
-sword_list.sort(key=lambda s: (s.quality, s.fishbone_lines_value, s.id), reverse=True)
+sword_list.sort(key=lambda s: (s.quality, s.fishbone_lines_values, s.id), reverse=True)
 
+# Output must be 30555317
 print(get_checksum(sword_list))
